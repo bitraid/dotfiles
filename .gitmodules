@@ -1,0 +1,51 @@
+[submodule ".zsh.d/zsh-syntax-highlighting"]
+	path = .zsh.d/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".zsh.d/grml-etc-core"]
+	path = .zsh.d/grml-etc-core
+	url = https://github.com/grml/grml-etc-core.git
+[submodule ".zsh.d/dircolors-solarized"]
+	path = .zsh.d/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule ".zsh.d/zsh-history-substring-search"]
+	path = .zsh.d/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule ".zsh.d/zsh-autosuggestions"]
+	path = .zsh.d/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".zsh.d/pure"]
+	path = .zsh.d/pure
+	url = https://github.com/sindresorhus/pure.git
+[submodule ".tmux.d/tmux-colors-solarized"]
+	path = .tmux.d/tmux-colors-solarized
+	url = https://github.com/seebi/tmux-colors-solarized.git
+[submodule ".config/nvim/vim-pathogen"]
+	path = .config/nvim/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".config/nvim/bundle/NeoSolarized"]
+	path = .config/nvim/bundle/NeoSolarized
+	url = https://github.com/icymind/NeoSolarized.git
+[submodule ".src.d/grml-etc-core"]
+	path = .src.d/grml-etc-core
+	url = https://github.com/grml/grml-etc-core.git
+[submodule ".src.d/vim-pathogen"]
+	path = .src.d/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".src.d/NeoSolarized"]
+	path = .src.d/NeoSolarized
+	url = https://github.com/icymind/NeoSolarized.git
+[submodule ".src.d/zsh-syntax-highlighting"]
+	path = .src.d/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".src.d/zsh-autosuggestions"]
+	path = .src.d/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".src.d/dircolors-solarized"]
+	path = .src.d/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule ".src.d/pure"]
+	path = .src.d/pure
+	url = https://github.com/sindresorhus/pure.git
+[submodule ".src.d/zsh-history-substring-search"]
+	path = .src.d/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
