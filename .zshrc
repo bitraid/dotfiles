@@ -27,7 +27,7 @@ alias phantomjs="env QT_QPA_PLATFORM= phantomjs"
 
 
 # Suffix aliases
-alias -s mp4="avi"
+alias -s avi="mpv"
 alias -s mp4="mpv"
 #
 
