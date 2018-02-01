@@ -9,7 +9,7 @@ source "$HOME/.src.d/grml-etc-core/etc/zsh/zshrc"
 
 
 # Update fpath
-fpath=("$HOME/.zfunctions" $fpath)
+fpath=("$HOME/.zfunctions" "${fpath[@]}")
 #
 
 
