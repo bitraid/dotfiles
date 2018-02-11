@@ -54,8 +54,8 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 
-zle-keymap-select () { [[ $TERM = "linux" ]] || [[ $KEYMAP = vicmd ]] && \
-	echo -ne "\e[2 q" || echo -ne "\e[6 q" }
+zle-keymap-select () { [[ $TERM = "linux" ]] || ( [[ $KEYMAP = vicmd ]] && \
+	echo -ne "\e[2 q" || echo -ne "\e[6 q" ) }
 
 zle-line-init () { zle -K viins }
 
@@ -68,6 +68,7 @@ export KEYTIMEOUT=1
 
 # Set pure prompt
 promptinit
+# [[ $TERM = "linux" ]] && PURE_PROMPT_SYMBOL='>'
 prompt pure
 #
 
