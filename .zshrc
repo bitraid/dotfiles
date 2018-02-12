@@ -11,7 +11,7 @@ source "$HOME/.src.d/grml-etc-core/etc/zsh/zshrc"
 # Update fpath and autoload functions
 [[ -d "$HOME/.zfunctions" ]] && \
 	fpath=("$HOME/.zfunctions" "${fpath[@]}") && \
-	autoload -Uz "$HOME/.zfunctions/*(:t)"
+	autoload -Uz $HOME/.zfunctions/*(:t)
 #
 
 
