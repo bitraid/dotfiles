@@ -68,7 +68,7 @@ export KEYTIMEOUT=1
 
 # Set pure prompt
 promptinit
-# [[ $TERM = "linux" ]] && PURE_PROMPT_SYMBOL='>'
+[[ $TERM = "linux" || $SSH_TTY ]] && PURE_PROMPT_SYMBOL='>'
 prompt pure
 #
 
