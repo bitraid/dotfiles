@@ -52,3 +52,6 @@
 [submodule ".src.d/tmux-colors-solarized"]
 	path = .src.d/tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
+[submodule ".src.d/vim-better-whitespace"]
+	path = .src.d/vim-better-whitespace
+	url = https://github.com/ntpeters/vim-better-whitespace.git

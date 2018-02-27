@@ -37,3 +37,7 @@ let g:neosolarized_vertSplitBgTrans = 0
 let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
 let g:neosolarized_italic = 0
+
+" vim-better-whitespace plugin
+let g:better_whitespace_enabled=1
+let g:show_spaces_that_precede_tabs=1
