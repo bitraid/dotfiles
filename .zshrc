@@ -55,7 +55,7 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 
 zle-keymap-select () { [[ $TERM = "linux" || $MC_SID ]] || \
-	( [[ $KEYMAP = vicmd ]] && echo -ne "\e[2 q" || echo -ne "\e[6 q" ) }
+	{ [[ $KEYMAP = vicmd ]] && echo -ne "\e[2 q" || echo -ne "\e[6 q" } }
 
 zle-line-init () { zle -K viins }
 
@@ -123,8 +123,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=black,fg=green,bold'
 	ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=magenta'
 	ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=red'
 	ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=red,bold'
-	ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=red'   
-	ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=red'   
+	ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=red'
+	ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=red'
 	ZSH_HIGHLIGHT_STYLES[assign]='fg=yellow'
 	ZSH_HIGHLIGHT_STYLES[redirection]='fg=yellow'
 	ZSH_HIGHLIGHT_STYLES[comment]='fg=green,bold'
