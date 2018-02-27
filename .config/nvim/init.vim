@@ -19,7 +19,7 @@ set scrolloff=3
 
 set autoindent
 set smartindent
-set tabstop=8 
+set tabstop=8
 set softtabstop=8
 set shiftwidth=8
 set smarttab
@@ -27,7 +27,7 @@ set smarttab
 set visualbell
 
 set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%;u;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
 set termguicolors
 set background=dark
 colorscheme NeoSolarized
