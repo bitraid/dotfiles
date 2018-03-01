@@ -51,7 +51,7 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 # change cursor shape with vi mode switch
 zle-keymap-select() {
-  if [[ $TERM != 'linux' || -z $MC_SID ]]; then
+  if [[ $TERM != 'linux' && -z $MC_SID ]]; then
     if [[ $KEYMAP = vicmd ]]; then
       echo -ne "\e[2 q"
     else
