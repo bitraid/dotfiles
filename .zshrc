@@ -78,7 +78,9 @@ prompt pure
 
 # autosuggestions
 source "${HOME}/.src.d/zsh-autosuggestions/zsh-autosuggestions.zsh"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=black,fg=green,bold'
+if [[ $TERM != 'linux' ]]; then
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=black,fg=green,bold'
+fi
 
 # syntax highlighting
 if [[ $TERM != 'linux' ]]; then
