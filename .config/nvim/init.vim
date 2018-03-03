@@ -18,7 +18,7 @@ set wrap
 set scrolloff=3
 
 set autoindent
-set smartindent
+set nosmartindent
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8
