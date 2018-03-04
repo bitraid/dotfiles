@@ -71,7 +71,7 @@ export KEYTIMEOUT=1
 promptinit
 if [[ $TERM = 'linux' || -n $SSH_TTY ]]; then
   PURE_PROMPT_SYMBOL='>'
-  PURE_GIT_DOWN_ARROW='*'
+  PURE_GIT_DOWN_ARROW='+'
   PURE_GIT_UP_ARROW='^'
 fi
 prompt pure
