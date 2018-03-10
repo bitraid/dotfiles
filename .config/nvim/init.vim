@@ -23,6 +23,9 @@ set tabstop=8
 set softtabstop=8
 set shiftwidth=8
 set smarttab
+autocmd Filetype sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype zsh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype grub setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 set visualbell
 
