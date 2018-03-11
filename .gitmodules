@@ -29,7 +29,7 @@
 	path = .src.d/grml-etc-core
 	url = https://github.com/grml/grml-etc-core.git
 [submodule ".src.d/NeoSolarized"]
-	path = .src.d/NeoSolarized
+	path = .config/nvim/pack/0/opt/NeoSolarized
 	url = https://github.com/icymind/NeoSolarized.git
 [submodule ".src.d/zsh-syntax-highlighting"]
 	path = .src.d/zsh-syntax-highlighting
@@ -50,8 +50,8 @@
 	path = .src.d/tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
 [submodule ".src.d/vim-better-whitespace"]
-	path = .src.d/vim-better-whitespace
+	path = .config/nvim/pack/0/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
 [submodule ".src.d/vim-fugitive"]
-	path = .src.d/vim-fugitive
+	path = .config/nvim/pack/0/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
