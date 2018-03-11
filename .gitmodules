@@ -28,9 +28,6 @@
 [submodule ".src.d/grml-etc-core"]
 	path = .src.d/grml-etc-core
 	url = https://github.com/grml/grml-etc-core.git
-[submodule ".src.d/vim-pathogen"]
-	path = .src.d/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule ".src.d/NeoSolarized"]
 	path = .src.d/NeoSolarized
 	url = https://github.com/icymind/NeoSolarized.git

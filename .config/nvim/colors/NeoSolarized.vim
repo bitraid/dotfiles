@@ -1,1 +1,0 @@
-../../../.src.d/NeoSolarized/colors/NeoSolarized.vim

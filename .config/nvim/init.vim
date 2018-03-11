@@ -1,8 +1,5 @@
 " neovim configuration
 
-
-execute pathogen#infect()
-
 set noswapfile
 set nobackup
 set nowritebackup
