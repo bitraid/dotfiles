@@ -12,5 +12,5 @@ export SDL_VIDEODRIVER="wayland"
 export ECORE_EVAS_ENGINE="wayland_egl"
 export ELM_ENGINE="wayland_egl"
 
-# Start the X server (use 'exec startx' to logout on exit)
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && sway || fortune -as
+# start sway (use 'exec sway' to logout on exit)
+[[ -z $DISPLAY && $(tty) = /dev/tty1 ]] && sway || fortune -as
