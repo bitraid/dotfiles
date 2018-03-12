@@ -42,3 +42,5 @@ let g:neosolarized_italic = 0
 " vim-better-whitespace plugin
 let g:better_whitespace_enabled=1
 let g:show_spaces_that_precede_tabs=1
+
+let g:airline_theme='solarized'
