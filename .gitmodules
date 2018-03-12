@@ -26,25 +26,25 @@
 	path = .config/nvim/bundle/NeoSolarized
 	url = https://github.com/icymind/NeoSolarized.git
 [submodule ".src.d/grml-etc-core"]
-	path = .src.d/grml-etc-core
+	path = .config/zsh/grml-etc-core
 	url = https://github.com/grml/grml-etc-core.git
 [submodule ".src.d/NeoSolarized"]
 	path = .config/nvim/pack/0/opt/NeoSolarized
 	url = https://github.com/icymind/NeoSolarized.git
 [submodule ".src.d/zsh-syntax-highlighting"]
-	path = .src.d/zsh-syntax-highlighting
+	path = .config/zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule ".src.d/zsh-autosuggestions"]
-	path = .src.d/zsh-autosuggestions
+	path = .config/zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule ".src.d/dircolors-solarized"]
-	path = .src.d/dircolors-solarized
+	path = .config/zsh/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
 [submodule ".src.d/pure"]
-	path = .src.d/pure
+	path = .config/zsh/pure
 	url = https://github.com/sindresorhus/pure.git
 [submodule ".src.d/zsh-history-substring-search"]
-	path = .src.d/zsh-history-substring-search
+	path = .config/zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule ".src.d/tmux-colors-solarized"]
 	path = .config/tmux/tmux-colors-solarized

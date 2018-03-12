@@ -2,13 +2,12 @@
 # vim:filetype=zsh
 
 # source grml config
-source "${HOME}/.src.d/grml-etc-core/etc/zsh/zshrc"
+source "${ZDOTDIR}/grml-etc-core/etc/zsh/zshrc"
 
 # aliases
-alias cfgit="/usr/bin/git --git-dir=${HOME}/.cfgit/ --work-tree=${HOME}"
+alias gdf="/usr/bin/git --work-tree=${HOME}"
 alias vim='/usr/bin/nvim'
 alias vimdiff='/usr/bin/nvim -d'
-alias phantomjs='env QT_QPA_PLATFORM= phantomjs'
 
 # suffix aliases
 alias -s avi='mpv'
@@ -18,17 +17,16 @@ alias -s mp4='mpv'
 export EDITOR='nvim'
 
 # update fpath and load user functions
-if [[ -d "${HOME}/.zfunctions" ]]; then
-  fpath=("${HOME}/.zfunctions" "${fpath[@]}")
-  autoload -Uz ${HOME}/.zfunctions/*(:t)
+if [[ -d "${ZDOTDIR}/functions" ]]; then
+  fpath=("${ZDOTDIR}/functions" "${fpath[@]}")
+  autoload -Uz ${ZDOTDIR}/functions/*(:t)
 fi
 
 # set LS_COLORS
 if [[ $TERM = *256color ]]; then
-  eval $(dircolors -b "${HOME}/.src.d/dircolors-solarized/dircolors.256dark")
+  eval $(dircolors -b "${ZDOTDIR}/dircolors-solarized/dircolors.256dark")
 else
-  eval $(dircolors -b \
-    "${HOME}/.src.d/dircolors-solarized/dircolors.ansi-universal")
+  eval $(dircolors -b "${ZDOTDIR}/dircolors-solarized/dircolors.ansi-universal")
 fi
 # use LS_COLORS for file completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -77,7 +75,7 @@ fi
 prompt pure
 
 # autosuggestions
-source "${HOME}/.src.d/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "${ZDOTDIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 if [[ $TERM != 'linux' ]]; then
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=black,fg=green,bold'
 fi
@@ -133,10 +131,9 @@ if [[ $TERM != 'linux' ]]; then
 # choose highlighters
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor root)
 fi
-source "${HOME}/.src.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # history substring search
-source \
-  "${HOME}/.src.d/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "${ZDOTDIR}/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
