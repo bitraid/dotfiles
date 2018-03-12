@@ -13,6 +13,7 @@ set cursorline
 
 set wrap
 set scrolloff=3
+set virtualedit=all
 
 set autoindent
 set nosmartindent
