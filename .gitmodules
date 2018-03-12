@@ -47,7 +47,7 @@
 	path = .src.d/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule ".src.d/tmux-colors-solarized"]
-	path = .src.d/tmux-colors-solarized
+	path = .config/tmux/tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
 [submodule ".src.d/vim-better-whitespace"]
 	path = .config/nvim/pack/0/start/vim-better-whitespace
