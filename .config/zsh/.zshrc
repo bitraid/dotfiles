@@ -5,7 +5,7 @@
 source "${ZDOTDIR}/grml-etc-core/etc/zsh/zshrc"
 
 # aliases
-alias gdf="/usr/bin/git --work-tree=${HOME}"
+alias gdf="/usr/bin/git --git-dir=${HOME}/.git --work-tree=${HOME}"
 alias vim='/usr/bin/nvim'
 alias vimdiff='/usr/bin/nvim -d'
 
