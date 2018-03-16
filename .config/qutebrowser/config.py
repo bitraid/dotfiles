@@ -1,7 +1,4 @@
 c.backend = 'webengine'
-c.content.javascript.enabled = False
-c.window.hide_wayland_decoration = True
-c.qt.force_platform = 'xcb'
 c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #073642, stop:1 #002B36)'
 c.colors.completion.category.border.bottom = '#002B36'
 c.colors.completion.category.border.top = '#073642'
@@ -38,8 +35,8 @@ c.colors.messages.info.fg = '#B58900'
 c.colors.messages.warning.bg = '#073642'
 c.colors.messages.warning.border = '#586E75'
 c.colors.messages.warning.fg = '#CB4B16'
-c.colors.prompts.border = '1px solid #586E75'
 c.colors.prompts.bg = '#002B36'
+c.colors.prompts.border = '1px solid #586E75'
 c.colors.prompts.fg = '#93A1A1'
 c.colors.prompts.selected.bg = '#586E75'
 c.colors.statusbar.caret.bg = '#002b36'
@@ -78,7 +75,7 @@ c.colors.tabs.selected.even.bg = '#839496'
 c.colors.tabs.selected.even.fg = '#002B36'
 c.colors.tabs.selected.odd.bg = '#839496'
 c.colors.tabs.selected.odd.fg = '#002B36'
-#c.content.pdfjs = True
+c.content.javascript.enabled = False
 c.downloads.position = 'bottom'
 c.fonts.completion.category = 'bold 14px monospace'
 c.fonts.completion.entry = '14px monospace'
@@ -94,21 +91,22 @@ c.fonts.prompts = '14px monospace'
 c.fonts.statusbar = '14px monospace'
 c.fonts.tabs = '14px monospace'
 c.hints.border = '1px solid #2AA198'
+c.qt.force_platform = 'xcb'
 c.tabs.new_position.unrelated = 'next'
 c.tabs.select_on_remove = 'prev'
 c.window.hide_wayland_decoration = True
-config.bind(',M', 'spawn mpv {url}')
-config.bind(';M', 'hint links spawn mpv {hint-url}')
-config.bind(',m', 'spawn mpv --ytdl-format="best[height<=?360]/best[height<=?480]/best[height<=?720]/best[height<=?1080]/best" --keep-open {url}')
-config.bind(';m', 'hint links spawn mpv --ytdl-format="best[height<=?360]/best[height<=?480]/best[height<=?720]/best[height<=?1080]/best" --keep-open {hint-url}')
-config.bind(',v', 'spawn you-get -p "mpv --keep-open" {url}')
-config.bind(';v', 'hint links spawn you-get -p "mpv --keep-open" {hint-url}')
-config.bind(',l', 'spawn zsh -c "echo {url} | xsel -i -b"')
-config.bind(';l', 'hint links spawn zsh -c "echo {hint-url} | xsel -i -b"')
 config.bind(',L', 'spawn zsh -c "echo {url} >> /tmp/linklist"')
+config.bind(',M', 'spawn mpv {url}')
+config.bind(',l', 'spawn zsh -c "echo {url} | xsel -i -b"')
+config.bind(',m', 'spawn mpv --ytdl-format="best[height<=?360]/best[height<=?480]/best[height<=?720]/best[height<=?1080]/best" --keep-open {url}')
+config.bind(',v', 'spawn you-get -p "mpv --keep-open" {url}')
 config.bind(';L', 'hint links spawn zsh -c "echo {hint-url} >> /tmp/linklist"')
-config.set('content.javascript.enabled', True, '*://mail.google.com/*')
-config.set('content.javascript.enabled', True, '*://www.inoreader.com/*')
+config.bind(';M', 'hint links spawn mpv {hint-url}')
+config.bind(';l', 'hint links spawn zsh -c "echo {hint-url} | xsel -i -b"')
+config.bind(';m', 'hint links spawn mpv --ytdl-format="best[height<=?360]/best[height<=?480]/best[height<=?720]/best[height<=?1080]/best" --keep-open {hint-url}')
+config.bind(';v', 'hint links spawn you-get -p "mpv --keep-open" {hint-url}')
 config.set('content.javascript.enabled', True, '*://github.com/*')
 config.set('content.javascript.enabled', True, '*://gitlab.com/*')
+config.set('content.javascript.enabled', True, '*://mail.google.com/*')
 config.set('content.javascript.enabled', True, '*://mail.protonmail.com/*')
+config.set('content.javascript.enabled', True, '*://www.inoreader.com/*')
