@@ -1,4 +1,5 @@
 c.backend = 'webengine'
+c.content.javascript.enabled = False
 c.window.hide_wayland_decoration = True
 c.qt.force_platform = 'xcb'
 c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #073642, stop:1 #002B36)'
@@ -106,3 +107,4 @@ config.bind(',l', 'spawn zsh -c "echo {url} | xsel -i -b"')
 config.bind(';l', 'hint links spawn zsh -c "echo {hint-url} | xsel -i -b"')
 config.bind(',L', 'spawn zsh -c "echo {url} >> /tmp/linklist"')
 config.bind(';L', 'hint links spawn zsh -c "echo {hint-url} >> /tmp/linklist"')
+config.set('content.javascript.enabled', True, '*://www.inoreader.com/*')
