@@ -4,8 +4,12 @@
 # source grml config
 source "${ZDOTDIR}/grml-etc-core/etc/zsh/zshrc"
 
-# aliases
+# aliases and functions
 alias gdf="/usr/bin/git --git-dir=${HOME}/.git --work-tree=${HOME}"
+alias gdfl="/usr/bin/git --git-dir=${HOME}/.git --work-tree=${HOME} log --oneline"
+alias gdfs="/usr/bin/git --git-dir=${HOME}/.git --work-tree=${HOME} status --short"
+alias gdfmu="/usr/bin/git --git-dir=${HOME}/.git --work-tree=${HOME} submodule update --remote --merge"
+gdfa() { /usr/bin/git --git-dir=${HOME}/.git --work-tree=${HOME} add "$@" }
 alias vim='/usr/bin/nvim'
 alias vimdiff='/usr/bin/nvim -d'
 
