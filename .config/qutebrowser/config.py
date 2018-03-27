@@ -94,7 +94,7 @@ c.hints.border = '1px solid #2AA198'
 c.qt.force_platform = 'xcb'
 c.tabs.new_position.unrelated = 'next'
 c.tabs.select_on_remove = 'prev'
-c.window.hide_wayland_decoration = True
+c.window.hide_decoration = True
 config.bind(',L', 'spawn zsh -c "echo {url} >> /tmp/linklist"')
 config.bind(',M', 'spawn mpv {url}')
 config.bind(',l', 'spawn zsh -c "echo {url} | xsel -i -b"')
