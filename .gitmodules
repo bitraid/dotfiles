@@ -13,8 +13,8 @@
 [submodule ".config/zsh/zsh-autosuggestions"]
 	path = .config/zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule ".config/zsh/dircolors-solarized"]
-	path = .config/zsh/dircolors-solarized
+[submodule ".config/dircolors-solarized"]
+	path = .config/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
 [submodule ".config/zsh/pure"]
 	path = .config/zsh/pure

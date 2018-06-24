@@ -28,9 +28,9 @@ fi
 
 # set LS_COLORS
 if [[ $TERM = *256color ]]; then
-  eval $(dircolors -b "${ZDOTDIR}/dircolors-solarized/dircolors.256dark")
+  eval $(dircolors -b "${HOME}/.config/dircolors-solarized/dircolors.256dark")
 else
-  eval $(dircolors -b "${ZDOTDIR}/dircolors-solarized/dircolors.ansi-universal")
+  eval $(dircolors -b "${HOME}/.config/dircolors-solarized/dircolors.ansi-universal")
 fi
 # use LS_COLORS for file completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
