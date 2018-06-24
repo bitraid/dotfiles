@@ -4,10 +4,6 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:xos4 Terminus 12px
-
-focus_follows_mouse no
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -18,20 +14,40 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term env WAYLAND_DISPLAY= alacritty -e env WAYLAND_DISPLAY=wayland-0 zsh
-
-set $tmux env WAYLAND_DISPLAY= alacritty -t tmux -e env WAYLAND_DISPLAY=wayland-0 zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$HOSTNAME"
+set $term alacritty
+# Your preferred application launcher
+#set $menu dmenu_run
+set $tmux alacritty -t tmux -e zsh -c "tmux has-session && exec tmux attach-session -d || exec tmux new-session -s$HOSTNAME"
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/sway/)
-# output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
+#output * bg /usr/local/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+#exec swayidle \
+#    timeout 300 'swaylock -c 000000' \
+#    timeout 600 'swaymsg "output * dpms off"' \
+#       resume 'swaymsg "output * dpms on"' \
+#    before-sleep 'swaylock -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 600 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle \
+    timeout 300 'swaylock -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -c 000000'
 
 ### Input configuration
 #
@@ -45,7 +61,6 @@ set $tmux env WAYLAND_DISPLAY= alacritty -t tmux -e env WAYLAND_DISPLAY=wayland-
 #   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
-# The escape symbol "\" has to be removed.
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
@@ -103,7 +118,6 @@ set $tmux env WAYLAND_DISPLAY= alacritty -t tmux -e env WAYLAND_DISPLAY=wayland-
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+Tab workspace back_and_forth
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
@@ -135,8 +149,6 @@ set $tmux env WAYLAND_DISPLAY= alacritty -t tmux -e env WAYLAND_DISPLAY=wayland-
     # respectively.
     bindsym $mod+v splith
     bindsym $mod+n splitv
-    
-    bindsym $mod+b border toggle
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -154,9 +166,8 @@ set $tmux env WAYLAND_DISPLAY= alacritty -t tmux -e env WAYLAND_DISPLAY=wayland-
 
     # move focus to the parent container
     bindsym $mod+a focus parent
-    
-    # focus the child container
-    bindsym $mod+c focus child
+
+    bindsym $mod+b border toggle
 #
 # Scratchpad:
 #
@@ -177,16 +188,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10 px or 10 ppt
-    bindsym $down resize grow height 10 px or 10 ppt
-    bindsym $up resize shrink height 10 px or 10 ppt
-    bindsym $right resize grow width 10 px or 10 ppt
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
 
     # ditto, with arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
 
     # return to default mode
     bindsym Return mode "default"
@@ -208,24 +219,22 @@ bar {
         focused_workspace #fdf6e3 #859900 #fdf6e3
         active_workspace #fdf6e3 #6c71c4 #fdf6e3
         inactive_workspace #586e75 #93a1a1 #002b36
-	urgent_workspace #d33682 #d33682 #fdf6e3
+        urgent_workspace #d33682 #d33682 #fdf6e3
     }
 }
 
-
-client.focused #859900 #859900 #fdf6e3 #6c71c4 #859900 
-client.focused_inactive #073642 #073642 #eee8d5 #6c71c4 #073642 
-client.unfocused #073642 #073642 #93a1a1 #586e75 #073642 
-client.urgent #d33682 #d33682 #fdf6e3 #dc322f #d33682 
-				  
-workspace_layout tabbed
+client.focused #859900 #859900 #fdf6e3 #6c71c4 #859900
+client.focused_inactive #073642 #073642 #eee8d5 #6c71c4 #073642
+client.unfocused #073642 #073642 #93a1a1 #586e75 #073642
+client.urgent #d33682 #d33682 #fdf6e3 #dc322f #d33682
 
 default_border pixel 1
 default_floating_border pixel 1
 
-for_window [title="tmux"] border none
-for_window [class="mpv"] floating enable
+focus_follows_mouse no
 
-include /etc/sway/config.d/*
+font pango:xos4 Terminus 12px
 
-exec env WAYLAND_DISPLAY= alacritty -t tmux -e env WAYLAND_DISPLAY=wayland-0 zsh -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$HOSTNAME"
+#include /usr/local/etc/sway/config.d/*
+
+exec $tmux
