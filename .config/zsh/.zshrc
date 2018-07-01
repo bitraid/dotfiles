@@ -141,3 +141,16 @@ source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${ZDOTDIR}/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+# fzf 24-bit solarized colors
+if [[ $TERM != 'linux' ]]; then
+  export FZF_DEFAULT_OPTS='
+    --color=bg+:#073642,bg:#002b36,spinner:#719e07,hl:#586e75
+    --color=fg:#839496,header:#586e75,info:#cb4b16,pointer:#719e07
+    --color=marker:#719e07,fg+:#839496,prompt:#719e07,hl+:#719e07
+  '
+fi
+
+# source fzf
+ source /usr/share/fzf/key-bindings.zsh
+ source /usr/share/fzf/completion.zsh
