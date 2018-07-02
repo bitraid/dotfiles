@@ -1,0 +1,59 @@
+#!/bin/zsh
+#vim:filetype=zsh
+
+qargs=(
+  -enable-kvm -machine q35,accel=kvm
+)
+qargs+=(
+  -cpu host,kvm=off -smp cores=2,threads=1,sockets=1
+)
+qargs+=(
+  -m 4G -vga qxl
+)
+[[ $1 = '-u' || $2 = '-u' ]] && qargs+=(
+  -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd
+)
+#qargs+=(
+#  -drive id=disk0,if=none,cache=writethrough,aio=threads,format=vhdx,file=/data/vm/bfbt.vhdx
+#)
+qargs+=(
+  -drive id=disk1,if=none,cache=writeback,aio=threads,format=vhdx,file=/data/vm/bfsys.vhdx
+)
+#qargs+=(
+#  -device virtio-blk-pci,drive=disk0,scsi=off,disable-legacy=on,disable-modern=off,bootindex=1
+#)
+qargs+=(
+  -device virtio-blk-pci,drive=disk1,scsi=off,disable-legacy=on,disable-modern=off,bootindex=2
+)
+[[ $1 = '-m' || $2 = '-m' ]] && qargs+=(
+  -boot order=c,menu=on,splash-time=5000,strict=on
+)
+qargs+=(
+  -device virtio-rng-pci,disable-legacy=on,disable-modern=off
+)
+qargs+=(
+  -device virtio-serial-pci,disable-legacy=on,disable-modern=off
+)
+qargs+=(
+  -device virtserialport,chardev=spicechannel1,name=com.redhat.spice.0
+)
+qargs+=(
+  -chardev spicevmc,id=spicechannel1,name=vdagent
+)
+qargs+=(
+  -spice unix,addr=/tmp/vm_spice_1,disable-ticketing
+)
+qargs+=(
+  -monitor unix:/tmp/vm_mon_1,server,nowait
+)
+
+[[ -S /tmp/vm_mon_1 ]] || qemu-system-x86_64 "${qargs[@]}" &
+
+sleep 1
+[[ -S /tmp/vm_mon_1 ]] || sleep 2
+
+[[ -S /tmp/vm_mon_1 ]] && {
+  [[ -S /tmp/vm_spice_1 ]] && remote-viewer --title "LabVM" spice+unix:///tmp/vm_spice_1 &
+  socat - UNIX-CONNECT:/tmp/vm_mon_1
+  rm /tmp/vm_mon_1
+}

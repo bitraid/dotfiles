@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+#vim:filetype=zsh
+
+qargs=( -enable-kvm -machine q35,accel=kvm )
+qargs+=( -cpu host,kvm=off -smp cores=2,threads=1,sockets=1 )
+qargs+=( -m 6G -vga qxl )
+[[ $1 = '-b' ]] || qargs+=( -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd )
+qargs+=( -drive id=disk0,if=none,cache=none,aio=native,format=raw,file=/dev/sda)
+qargs+=( -device virtio-blk-pci,drive=disk0,scsi=off,disable-legacy=on,disable-modern=off,bootindex=1 )
+qargs+=( -device virtio-net-pci,netdev=net0,disable-legacy=on,disable-modern=off )
+qargs+=( -netdev bridge,br=br0,id=net0 )
+#qargs+=( -device virtio-keyboard-pci,disable-legacy=on,disable-modern=off )
+#qargs+=( -device virtio-tablet-pci,disable-legacy=on,disable-modern=off )
+qargs+=( -device virtio-rng-pci,disable-legacy=on,disable-modern=off )
+qargs+=( -device virtio-serial-pci,disable-legacy=on,disable-modern=off )
+qargs+=( -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 )
+qargs+=( -chardev spicevmc,id=spicechannel0,name=vdagent )
+qargs+=( -spice unix,addr=/tmp/vm_spice,disable-ticketing )
+qargs+=( -monitor unix:/tmp/vm_mon,server,nowait )
+
+[[ -S /tmp/vm_mon ]] || {
+  sudo chown $(whoami) /dev/sda && qemu-system-x86_64 "${qargs[@]}" &
+  sleep 1
+}
+
+[[ -S /tmp/vm_mon ]] && {
+  [[ -S /tmp/vm_spice ]] && remote-viewer --title "WorkVM" spice+unix:///tmp/vm_spice &
+  socat - UNIX-CONNECT:/tmp/vm_mon
+  rm /tmp/vm_mon
+  sudo chown root /dev/sda
+}
