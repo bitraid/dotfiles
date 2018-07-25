@@ -39,6 +39,9 @@ let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
 let g:neosolarized_italic = 0
 
+" highlight column 80 and columns 120 and onward
+let &colorcolumn="80,".join(range(120,999),",")
+
 " vim-better-whitespace plugin
 let g:better_whitespace_enabled=1
 let g:show_spaces_that_precede_tabs=1
