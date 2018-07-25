@@ -13,17 +13,17 @@ qargs+=(
 [[ $1 = '-u' || $2 = '-u' ]] && qargs+=(
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd
 )
-#qargs+=(
-#  -drive id=disk0,if=none,cache=writethrough,aio=threads,format=vhdx,file=/data/vm/bfbt.vhdx
-#)
+qargs+=(
+  -drive id=disk0,if=none,cache=writethrough,aio=threads,format=vhdx,file=/data/vm/bfbt.vhdx
+)
 qargs+=(
   -drive id=disk1,if=none,cache=writeback,aio=threads,format=vhdx,file=/data/vm/bfsys.vhdx
 )
-#qargs+=(
-#  -device virtio-blk-pci,drive=disk0,scsi=off,disable-legacy=on,disable-modern=off,bootindex=1
-#)
 qargs+=(
-  -device virtio-blk-pci,drive=disk1,scsi=off,disable-legacy=on,disable-modern=off,bootindex=2
+  -device virtio-blk-pci,drive=disk0,scsi=off,disable-legacy=on,disable-modern=off,bootindex=2
+)
+qargs+=(
+  -device virtio-blk-pci,drive=disk1,scsi=off,disable-legacy=on,disable-modern=off,bootindex=1
 )
 [[ $1 = '-m' || $2 = '-m' ]] && qargs+=(
   -boot order=c,menu=on,splash-time=5000,strict=on
