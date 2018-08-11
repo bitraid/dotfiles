@@ -91,6 +91,7 @@ c.fonts.prompts = '14px monospace'
 c.fonts.statusbar = '14px monospace'
 c.fonts.tabs = '14px monospace'
 c.hints.border = '1px solid #2AA198'
+c.qt.force_platform = 'xcb'
 c.tabs.new_position.unrelated = 'next'
 c.tabs.select_on_remove = 'prev'
 c.window.hide_decoration = True
