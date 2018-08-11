@@ -19,6 +19,7 @@ function fish_prompt --description "Write out the prompt"
     end
 
     echo -n -s (set_color $fish_color_user) "$USER" (set_color normal) @ \
-        (set_color $fish_color_host) (prompt_hostname) ' ' (set_color $color_cwd) \
-        (prompt_pwd) (set_color normal) (__fish_git_prompt) \n (set_color normal) "$suffix "
+        (set_color $fish_color_host) (prompt_hostname) ' ' \
+        (set_color $color_cwd) (prompt_pwd) (set_color normal) \
+        (__fish_git_prompt) \n (set_color normal) "$suffix "
 end
