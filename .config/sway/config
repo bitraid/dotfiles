@@ -236,11 +236,14 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f #d33682
 default_border pixel 1
 default_floating_border pixel 1
 
+hide_edge_borders --i3 none
+
 focus_follows_mouse no
 
 font pango:xos4 Terminus 12px
 
 seat seat0 hide_cursor 1000
+
 for_window [app_id="tmux"] border pixel 0
 for_window [app_id="mpv"] floating enable
 
