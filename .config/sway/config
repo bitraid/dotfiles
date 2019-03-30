@@ -244,7 +244,10 @@ font pango:xos4 Terminus 12px
 
 seat seat0 hide_cursor 1000
 
-for_window [app_id="tmux"] border pixel 0
+for_window [app_id="tmux"] floating enable; resize set height 100ppt; \
+    resize set width 100ppt; move absolute 0 0; opacity 0.9; sticky enable; \
+    move scratchpad; scratchpad show
+
 for_window [app_id="mpv"] floating enable
 
 include @sysconfdir@/sway/config.d/*
