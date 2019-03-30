@@ -18,7 +18,9 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $tmux alacritty --class tmux -e zsh -c "tmux has-session && exec tmux attach-session -d || exec tmux new-session -s$HOSTNAME"
+set $tmux alacritty --class tmux -e zsh -c "tmux has-session -t $HOSTNAME \
+    && exec tmux attach-session -d -t $HOSTNAME \
+    || exec tmux new-session -s $HOSTNAME"
 
 ### Output configuration
 #
