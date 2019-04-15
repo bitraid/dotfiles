@@ -173,7 +173,7 @@ bar {
     position bottom
     status_command i3status
     colors {
-        separator #dc322f
+        separator #b58900
         statusline #268bd2
         background #002b36
         focused_workspace #fdf6e3 #859900 #fdf6e3
@@ -197,9 +197,8 @@ focus_follows_mouse no
 
 font pango:xos4 Terminus 12px
 
-for_window [app_id="tmux"] floating enable; resize set height 100ppt; \
-    resize set width 100ppt; move absolute 0 0; opacity 0.9; sticky enable; \
-    move scratchpad; scratchpad show
+for_window [app_id="tmux"] floating enable; border pixel 1; opacity 0.9; \
+resize set 100ppt 100ppt; move absolute 0 0; move scratchpad; scratchpad show
 
 for_window [app_id="mpv"] floating enable
 
