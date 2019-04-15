@@ -188,7 +188,7 @@ client.focused_inactive #073642 #073642 #eee8d5 #6c71c4 #073642
 client.unfocused #073642 #073642 #93a1a1 #586e75 #073642
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f #d33682
 
-default_border pixel 1
+default_border pixel 2
 default_floating_border pixel 1
 
 hide_edge_borders --i3 none
