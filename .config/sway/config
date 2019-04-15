@@ -128,10 +128,14 @@ seat * hide_cursor 3000
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # move focus to the parent container
+    # Move focus to the parent container
     bindsym $mod+a focus parent
 
+    # Toggle window border style
     bindsym $mod+b border toggle
+
+    # Toggle floating window sticky state
+    bindsym $mod+p sticky toggle
 #
 # Scratchpad:
 #
