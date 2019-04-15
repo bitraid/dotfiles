@@ -30,7 +30,7 @@ exec swayidle -w \
     before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration (man 5 sway-input)
-seat seat0 hide_cursor 1000
+seat * hide_cursor 3000
 
 ### Key bindings
 #
