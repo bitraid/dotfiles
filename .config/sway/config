@@ -203,7 +203,8 @@ focus_follows_mouse no
 font pango:xos4 Terminus 12px
 
 for_window [app_id="tmux"] floating enable; border pixel 1; opacity 0.9; \
-resize set 100ppt 100ppt; move absolute 0 0; move scratchpad; scratchpad show
+    resize set 100ppt 100ppt; move window to absolute position 0 0; \
+    move scratchpad; scratchpad show
 
 for_window [app_id="mpv"] floating enable
 
