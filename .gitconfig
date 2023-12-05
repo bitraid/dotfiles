@@ -1,0 +1,8 @@
+[core]
+	editor = nvim
+[user]
+	name = bitraid
+	email = bitraid@protonmail.ch
+	signingkey = E1D7E6F4A4E574CFE8536A7221A3B0D950B23728
+[protocol]
+	version = 2
