@@ -1,0 +1,208 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Solarized Dark
+set $base03    002b36
+set $base02    073642
+set $base01    586e75
+set $base00    657b83
+set $base0     839496
+set $base1     93a1a1
+set $base2     eee8d5
+set $base3     fdf6e3
+set $yellow    b58900
+set $orange    cb4b10
+set $red       dc322f
+set $magenta   d33682
+set $violet    6c71c4
+set $blue      268bd2
+set $cyan      2aa198
+set $green     859900
+set $cyan      2aa198
+
+set $term foot
+
+set $tmux foot --app-id=tmux --maximized fish --command="tmux has-session -t $(hostname) \
+    && tmux attach-session -d -t $(hostname) || tmux new-session -s $(hostname)"
+
+set $idle swayidle -w timeout 600 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"'
+
+set $lock swaylock -f -c 000000 --bs-hl-color $magenta --inside-clear-color $yellow \
+    --inside-ver-color $blue --inside-wrong-color $red --key-hl-color $green \
+    --layout-text-color $base1 --ring-color $base02 --ring-clear-color $orange \
+    --ring-ver-color $violet --ring-wrong-color $magenta
+
+set $exit swaynag --background $yellow -t warning -m \
+       'You pressed the exit shortcut. Do you really want to exit sway? \
+       This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+bindsym $mod+t exec $tmux
+bindsym $mod+Return exec $term
+bindsym $mod+x exec $lock
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec $exit
+floating_modifier $mod normal
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Control+Shift+$left move left 1px
+bindsym $mod+Shift+$down move down
+bindsym $mod+Control+Shift+$down move down 1px
+bindsym $mod+Shift+$up move up
+bindsym $mod+Control+Shift+$up move up 1px
+bindsym $mod+Shift+$right move right
+bindsym $mod+Control+Shift+$right move right 1px
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Control+Shift+Left move left 1px
+bindsym $mod+Shift+Down move down
+bindsym $mod+Control+Shift+Down move down 1px
+bindsym $mod+Shift+Up move up
+bindsym $mod+Control+Shift+Up move up 1px
+bindsym $mod+Shift+Right move right
+bindsym $mod+Control+Shift+Right move right 1px
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+bindsym $mod+v splith
+bindsym $mod+n splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+p sticky toggle
+bindsym $mod+grave scratchpad show
+
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym Alt+$left resize shrink width 5
+    bindsym Control+$left resize shrink width 1px
+    bindsym Shift+$left resize shrink width 2px
+
+    bindsym $down resize grow height 10px
+    bindsym Alt+$down resize grow height 5
+    bindsym Control+$down resize grow height 1px
+    bindsym Shift+$down resize grow height 2px
+
+    bindsym $up resize shrink height 10px
+    bindsym Alt+$up resize shrink height 5
+    bindsym Control+$up resize shrink height 1px
+    bindsym Shift+$up resize shrink height 2px
+
+    bindsym $right resize grow width 10px
+    bindsym Alt+$right resize grow width 5
+    bindsym Control+$right resize grow width 1px
+    bindsym Shift+$right resize grow width 2px
+
+    bindsym Left resize shrink width 10px
+    bindsym Alt+Left resize shrink width 5
+    bindsym Control+Left resize shrink width 1px
+    bindsym Shift+Left resize shrink width 2px
+
+    bindsym Down resize grow height 10px
+    bindsym Alt+Down resize grow height 5
+    bindsym Control+Down resize grow height 1px
+    bindsym Shift+Down resize grow height 2px
+
+    bindsym Up resize shrink height 10px
+    bindsym Alt+Up resize shrink height 5
+    bindsym Control+Up resize shrink height 1px
+    bindsym Shift+Up resize shrink height 2px
+
+    bindsym Right resize grow width 10px
+    bindsym Alt+Right resize grow width 5
+    bindsym Control+Right resize grow width 1px
+    bindsym Shift+Right resize grow width 2px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bar {
+    position bottom
+    status_command i3status
+
+    colors {
+        statusline #$cyan
+        background #$base03
+        separator #$base1
+        focused_workspace #$base3 #$green #$base3
+        active_workspace #$base3 #$violet #$base3
+        inactive_workspace #$base01 #$base1 #$base03
+        urgent_workspace #$magenta #$magenta #$base3
+    }
+}
+
+client.focused #$green #$base01 #$base3 #$blue #$green
+client.focused_inactive #$base02 #$base02 #$base2 #$violet #$base02
+client.unfocused #$base02 #$base02 #$base1 #$base01 #$base02
+client.urgent #$magenta #$magenta #$base3 #$red #$magenta
+
+default_border pixel 2
+default_floating_border pixel 1
+
+focus_follows_mouse no
+
+font pango:Terminus 14px
+
+hide_edge_borders --i3 none
+
+seat * hide_cursor 3000
+
+input "type:keyboard" {
+    xkb_layout us,gr
+    xkb_options grp:alt_shift_toggle,caps:swapescape
+}
+
+output * bg #$base03 solid_color
+
+for_window [app_id="tmux"] floating enable; border pixel 1; opacity 0.9; \
+    resize set 100ppt 100ppt; move window to absolute position 0 2; \
+    move scratchpad; scratchpad show; sticky enable
+
+for_window [app_id="mpv"] floating enable
+
+include @sysconfdir@/sway/config.d/*
+
+exec $idle
+exec $tmux
