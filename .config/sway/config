@@ -197,7 +197,7 @@ input "type:keyboard" {
 output * bg #$base03 solid_color
 
 for_window [app_id="tmux"] floating enable; border pixel 1; opacity 0.9; \
-    resize set 100ppt 100ppt; move window to absolute position 0 2; \
+    resize set 100ppt 100ppt; move window to absolute position 0 0; \
     move scratchpad; scratchpad show; sticky enable
 
 for_window [app_id="mpv"] floating enable
