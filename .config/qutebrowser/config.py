@@ -133,6 +133,7 @@ config.bind(';m', 'hint links spawn mpv --no-terminal --force-window=immediate -
 config.bind(';M', 'hint links spawn mpv --ytdl-format="bestvideo+bestaudio/best" --no-terminal --force-window=immediate --keep-open \'{hint-url}\'')
 config.bind('xt', 'open -t https://translate.google.com/translate?hl=en&sl=auto&tl=en&u={url}')
 config.bind('xT', 'open https://translate.google.com/translate?hl=en&sl=auto&tl=en&u={url}')
+config.bind('<Alt+d>', 'config-cycle colors.webpage.darkmode.enabled false true')
 config.bind('<Alt+h>', 'scroll-px -10 0')
 config.bind('<Alt+j>', 'scroll-px 0 10')
 config.bind('<Alt+k>', 'scroll-px 0 -10')
