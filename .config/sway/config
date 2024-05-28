@@ -109,6 +109,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
+bindsym $mod+b border toggle
 bindsym $mod+p sticky toggle
 bindsym $mod+grave scratchpad show
 
