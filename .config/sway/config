@@ -36,7 +36,7 @@ set $lock swaylock -f -c 000000 --bs-hl-color $magenta --inside-clear-color $yel
     --layout-text-color $base1 --ring-color $base02 --ring-clear-color $orange \
     --ring-ver-color $violet --ring-wrong-color $magenta
 
-set $exit swaynag --background $yellow -t warning -m \
+set $exit swaynag -t warning -m \
        'You pressed the exit shortcut. Do you really want to exit sway? \
        This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
