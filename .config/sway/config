@@ -31,18 +31,13 @@ set $tmux foot --app-id=tmux --maximized fish --command="tmux has-session -t $(h
 set $idle swayidle -w timeout 600 'swaymsg "output * power off"' \
     resume 'swaymsg "output * power on"'
 
-set $lock swaylock -f -c 000000 --bs-hl-color $magenta --inside-clear-color $yellow \
-    --inside-ver-color $blue --inside-wrong-color $red --key-hl-color $green \
-    --layout-text-color $base1 --ring-color $base02 --ring-clear-color $orange \
-    --ring-ver-color $violet --ring-wrong-color $magenta
-
 set $exit swaynag -t warning -m \
        'You pressed the exit shortcut. Do you really want to exit sway? \
        This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 bindsym $mod+t exec $tmux
 bindsym $mod+Return exec $term
-bindsym $mod+x exec $lock
+bindsym $mod+z exec swaylock
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec $exit
