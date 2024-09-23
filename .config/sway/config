@@ -36,6 +36,26 @@ set $exit swaynag -t warning -m \
 	'You pressed the exit shortcut. Do you really want to exit sway? \
 	This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+set $wmenu_conf -i -f "Terminus 18px" -l 25 -N $base02ee -n $base0 -M $base03 \
+	-m $base1 -S $base00 -s $base2
+
+set $fish_wmenu_crun \
+	set s (for i in $PATH/*; test -x "$i"; and path basename "$i"; \
+	end | sort -u | wmenu $wmenu_conf -p "Run program with console"); \
+	test "$s"; and foot -T "$s" -H (string split " " $s)
+
+set $fish_wmenu_open \
+	set s $HOME; \
+	while test -d "$s"; \
+		cd "$s/"; set -e s; \
+		set m *; \
+		test (pwd) != /; and set -p m ..; \
+		test $_all; and set -a m .*; \
+		set s (for i in $m; test -d "$i"; and echo "$i/"; or echo "$i"; \
+		end | sort | wmenu $wmenu_conf -p "Open file in $(pwd)"); \
+	end; \
+	test -e "$s"; and xdg-open "$s"
+
 bindsym $mod+t exec $tmux
 bindsym $mod+Return exec $term
 bindsym $mod+z exec swaylock
@@ -154,6 +174,11 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+bindsym $mod+x exec wmenu-run $wmenu_conf -p 'Run program'
+bindsym $mod+mod1+x exec fish -c '$fish_wmenu_crun'
+bindsym $mod+d exec fish -c '$fish_wmenu_open'
+bindsym $mod+Shift+d exec fish -c 'set _all 1; $fish_wmenu_open'
 
 bar {
 	position bottom
