@@ -25,15 +25,16 @@ set $cyan      2aa198
 
 set $term foot
 
-set $tmux foot --app-id=tmux --maximized fish --command="tmux has-session -t $(hostname) \
-    && tmux attach-session -d -t $(hostname) || tmux new-session -s $(hostname)"
+set $tmux foot --app-id=tmux fish --command="tmux has-session -t $(hostname) \
+	&& tmux attach-session -d -t $(hostname) \
+	|| tmux new-session -s $(hostname)"
 
 set $idle swayidle -w timeout 600 'swaymsg "output * power off"' \
-    resume 'swaymsg "output * power on"'
+	resume 'swaymsg "output * power on"'
 
 set $exit swaynag -t warning -m \
-       'You pressed the exit shortcut. Do you really want to exit sway? \
-       This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+	'You pressed the exit shortcut. Do you really want to exit sway? \
+	This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 bindsym $mod+t exec $tmux
 bindsym $mod+Return exec $term
@@ -109,64 +110,64 @@ bindsym $mod+p sticky toggle
 bindsym $mod+grave scratchpad show
 
 mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym Alt+$left resize shrink width 5
-    bindsym Control+$left resize shrink width 1px
-    bindsym Shift+$left resize shrink width 2px
+	bindsym $left resize shrink width 10px
+	bindsym Alt+$left resize shrink width 5
+	bindsym Control+$left resize shrink width 1px
+	bindsym Shift+$left resize shrink width 2px
 
-    bindsym $down resize grow height 10px
-    bindsym Alt+$down resize grow height 5
-    bindsym Control+$down resize grow height 1px
-    bindsym Shift+$down resize grow height 2px
+	bindsym $down resize grow height 10px
+	bindsym Alt+$down resize grow height 5
+	bindsym Control+$down resize grow height 1px
+	bindsym Shift+$down resize grow height 2px
 
-    bindsym $up resize shrink height 10px
-    bindsym Alt+$up resize shrink height 5
-    bindsym Control+$up resize shrink height 1px
-    bindsym Shift+$up resize shrink height 2px
+	bindsym $up resize shrink height 10px
+	bindsym Alt+$up resize shrink height 5
+	bindsym Control+$up resize shrink height 1px
+	bindsym Shift+$up resize shrink height 2px
 
-    bindsym $right resize grow width 10px
-    bindsym Alt+$right resize grow width 5
-    bindsym Control+$right resize grow width 1px
-    bindsym Shift+$right resize grow width 2px
+	bindsym $right resize grow width 10px
+	bindsym Alt+$right resize grow width 5
+	bindsym Control+$right resize grow width 1px
+	bindsym Shift+$right resize grow width 2px
 
-    bindsym Left resize shrink width 10px
-    bindsym Alt+Left resize shrink width 5
-    bindsym Control+Left resize shrink width 1px
-    bindsym Shift+Left resize shrink width 2px
+	bindsym Left resize shrink width 10px
+	bindsym Alt+Left resize shrink width 5
+	bindsym Control+Left resize shrink width 1px
+	bindsym Shift+Left resize shrink width 2px
 
-    bindsym Down resize grow height 10px
-    bindsym Alt+Down resize grow height 5
-    bindsym Control+Down resize grow height 1px
-    bindsym Shift+Down resize grow height 2px
+	bindsym Down resize grow height 10px
+	bindsym Alt+Down resize grow height 5
+	bindsym Control+Down resize grow height 1px
+	bindsym Shift+Down resize grow height 2px
 
-    bindsym Up resize shrink height 10px
-    bindsym Alt+Up resize shrink height 5
-    bindsym Control+Up resize shrink height 1px
-    bindsym Shift+Up resize shrink height 2px
+	bindsym Up resize shrink height 10px
+	bindsym Alt+Up resize shrink height 5
+	bindsym Control+Up resize shrink height 1px
+	bindsym Shift+Up resize shrink height 2px
 
-    bindsym Right resize grow width 10px
-    bindsym Alt+Right resize grow width 5
-    bindsym Control+Right resize grow width 1px
-    bindsym Shift+Right resize grow width 2px
+	bindsym Right resize grow width 10px
+	bindsym Alt+Right resize grow width 5
+	bindsym Control+Right resize grow width 1px
+	bindsym Shift+Right resize grow width 2px
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
 bar {
-    position bottom
-    status_command i3status
+	position bottom
+	status_command i3status
 
-    colors {
-        statusline #$cyan
-        background #$base03
-        separator #$base1
-        focused_workspace #$base3 #$green #$base3
-        active_workspace #$base3 #$violet #$base3
-        inactive_workspace #$base01 #$base1 #$base03
-        urgent_workspace #$magenta #$magenta #$base3
-    }
+	colors {
+		statusline #$cyan
+		background #$base03
+		separator #$base1
+		focused_workspace #$base3 #$green #$base3
+		active_workspace #$base3 #$violet #$base3
+		inactive_workspace #$base01 #$base1 #$base03
+		urgent_workspace #$magenta #$magenta #$base3
+	}
 }
 
 client.focused #$green #$base01 #$base3 #$blue #$green
@@ -186,15 +187,15 @@ hide_edge_borders --i3 none
 seat * hide_cursor 3000
 
 input "type:keyboard" {
-    xkb_layout us,gr
-    xkb_options grp:alt_shift_toggle,caps:swapescape
+	xkb_layout us,gr
+	xkb_options grp:alt_shift_toggle,caps:swapescape
 }
 
 output * bg #$base03 solid_color
 
-for_window [app_id="tmux"] floating enable; border pixel 1; opacity 0.9; \
-    resize set 100ppt 100ppt; move window to absolute position 0 0; \
-    move scratchpad; scratchpad show; sticky enable
+for_window [app_id="tmux"] floating enable, border pixel 1, opacity 0.9, \
+	resize set 100ppt 100ppt, move window to absolute position 0 0, \
+	sticky enable, move scratchpad, scratchpad show
 
 for_window [app_id="mpv"] floating enable
 
