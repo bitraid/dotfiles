@@ -1,0 +1,33 @@
+[menu]
+executable = "wmenu"
+args = [
+	"-i",
+	"-f", "Terminus 18px",
+	"-l", "25",
+	"-p", "{prompt}",
+	"-N", "073642ee",
+	"-n", "839496",
+	"-M", "002b36",
+	"-m", "93a1a1",
+	"-S", "657b83",
+	"-s", "eee8d5"
+]
+
+[format]
+output_format = 'Output {name}  ({id})'
+workspace_format = ':: Workspace {name} [{layout}] on output {output_name}  ({id})'
+container_format = 'Container [{layout}] {marks} on workspace {workspace_name}  ({id})'
+window_format = '[{app_name}/{workspace_name}/{output_name}] ({id}/{pid})  {title}'
+html_escape = true
+
+[layout]
+auto_tile = false
+
+[focus]
+lockin_delay = 750
+
+[misc]
+seq_inhibit = false
+
+[swaymsg_commands]
+include_predefined = true
