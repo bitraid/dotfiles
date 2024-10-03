@@ -189,7 +189,7 @@ bindsym $mod+mod1+Tab exec swayr switch-workspace-or-window
 
 bar {
 	position bottom
-	status_command i3status
+	status_command swayrbar
 
 	colors {
 		statusline #$cyan
