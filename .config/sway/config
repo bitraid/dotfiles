@@ -187,6 +187,13 @@ bindsym $mod+Tab exec swayr switch-to-urgent-or-lru-window
 bindsym mod1+Tab exec swayr switch-window
 bindsym $mod+mod1+Tab exec swayr switch-workspace-or-window
 
+bindsym $mod+i exec swayr prev-window current-workspace
+bindsym $mod+o exec swayr next-window current-workspace
+bindsym $mod+Shift+i exec swayr prev-window all-workspaces
+bindsym $mod+Shift+o exec swayr next-window all-workspaces
+
+bindsym $mod+q exec swayr quit-window
+
 bar {
 	position bottom
 	status_command swayrbar
