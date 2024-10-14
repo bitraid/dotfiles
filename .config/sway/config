@@ -247,3 +247,4 @@ include @sysconfdir@/sway/config.d/*
 
 exec $idle
 exec $tmux
+exec swayrd
