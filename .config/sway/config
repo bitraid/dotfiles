@@ -23,11 +23,14 @@ set $cyan      2aa198
 set $green     859900
 set $cyan      2aa198
 
-set $term foot
+set $term foot --working-directory="$HOME"
 
-set $tmux foot --app-id=tmux fish --command="tmux has-session -t $(hostname) \
-	&& tmux attach-session -d -t $(hostname) \
-	|| tmux new-session -s $(hostname)"
+set $shell /usr/bin/fish --login
+
+set $tmux $term --app-id=tmux $shell --command='\
+	tmux has-session -t "$hostname"; \
+	and tmux attach-session -d -t "$hostname"; \
+	or tmux new-session -s "$hostname"'
 
 set $idle swayidle -w timeout 600 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
@@ -39,10 +42,12 @@ set $exit swaynag -t warning -m \
 set $wmenu_conf -i -f "Terminus 18px" -l 25 -N $base02ee -n $base0 -M $base03 \
 	-m $base1 -S $base00 -s $base2
 
+set $exec_fish exec /usr/bin/fish -c
+
 set $fish_wmenu_crun \
 	set s (for i in $PATH/*; test -x "$i"; and path basename "$i"; \
 	end | sort -u | wmenu $wmenu_conf -p "Run program with console"); \
-	test "$s"; and foot -T "$s" -H (string split " " $s)
+	test "$s"; and $term --title="$s" --hold (string split " " $s)
 
 set $fish_wmenu_open \
 	set s $HOME; \
@@ -57,7 +62,7 @@ set $fish_wmenu_open \
 	test -e "$s"; and xdg-open "$s"
 
 bindsym $mod+t exec $tmux
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term $shell
 bindsym $mod+z exec swaylock
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
@@ -176,9 +181,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindsym $mod+x exec wmenu-run $wmenu_conf -p 'Run program'
-bindsym $mod+mod1+x exec fish -c '$fish_wmenu_crun'
-bindsym $mod+d exec fish -c '$fish_wmenu_open'
-bindsym $mod+Shift+d exec fish -c 'set _all 1; $fish_wmenu_open'
+bindsym $mod+mod1+x $exec_fish '$fish_wmenu_crun'
+bindsym $mod+d $exec_fish '$fish_wmenu_open'
+bindsym $mod+Shift+d $exec_fish 'set _all 1; $fish_wmenu_open'
 
 bindsym $mod+Control+x exec swayr execute-swaymsg-command
 bindsym $mod+Shift+x exec swayr execute-swayr-command
