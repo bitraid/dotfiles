@@ -35,12 +35,12 @@ html_escape = false
 
 [modules.on_click]
 Right = [
-	"foot",
+	"footclient",
 	"sudo",
 	"htop",
 ]
 Left = [
-	"foot",
+	"footclient",
 	"htop",
 ]
 
@@ -52,12 +52,12 @@ html_escape = false
 
 [modules.on_click]
 Right = [
-	"foot",
+	"footclient",
 	"watch",
 	"sensors",
 ]
 Left = [
-	"foot",
+	"footclient",
 	"watch",
 	"acpi -V",
 ]
@@ -88,7 +88,7 @@ WheelUp = [
 	"1%+",
 ]
 Left = [
-	"foot",
+	"footclient",
 	"watch",
 	"wpctl",
 	"status",
@@ -102,7 +102,7 @@ html_escape = false
 
 [modules.on_click]
 Left = [
-	"foot",
+	"footclient",
 	"-H",
 	"cal -3",
 ]

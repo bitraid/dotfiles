@@ -23,7 +23,9 @@ set $cyan      2aa198
 set $green     859900
 set $cyan      2aa198
 
-set $term foot --working-directory="$HOME"
+set $term footclient --working-directory="$HOME"
+
+set $foot_socket $XDG_RUNTIME_DIR/foot-wayland-1.sock
 
 set $shell /usr/bin/fish --login
 
@@ -245,6 +247,11 @@ for_window [app_id="mpv"] floating enable
 
 include @sysconfdir@/sway/config.d/*
 
+exec foot --server
+
+exec "i=1; while test $i -le 10 && test ! -S $foot_socket; \
+	do sleep 0.5; i=$(($i+1)); done; $tmux"
+
 exec $idle
-exec $tmux
+
 exec swayrd
