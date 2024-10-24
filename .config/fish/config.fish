@@ -1,3 +1,9 @@
+function set_global
+	set -gx EDITOR nvim
+	set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+	eval (dircolors -c "$HOME/.config/dircolors-solarized/dircolors.256dark")
+end
+
 if test -t 0
 	set fish_cursor_default block
 	set fish_cursor_insert line
@@ -7,11 +13,12 @@ if test -t 0
 end
 
 if status is-login
-	set -gx EDITOR nvim
-	set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-	eval (dircolors -c "$HOME/.config/dircolors-solarized/dircolors.256dark")
+	set -gx fish_login (date)
+	set_global
 end
 
 if status is-interactive
+	set -q fish_login
+	or set_global
 	set -x GPG_TTY (tty)
 end

@@ -27,9 +27,9 @@ set $term footclient --working-directory="$HOME"
 
 set $foot_socket $XDG_RUNTIME_DIR/foot-wayland-1.sock
 
-set $shell /usr/bin/fish --login
+set $fish /usr/bin/fish
 
-set $tmux $term --app-id=tmux $shell --command='\
+set $tmux $term --app-id=tmux $fish --login --command='\
 	tmux has-session -t "$hostname"; \
 	and tmux attach-session -d -t "$hostname"; \
 	or tmux new-session -s "$hostname"'
@@ -44,7 +44,7 @@ set $exit swaynag -t warning -m \
 set $wmenu_conf -i -f "Terminus 18px" -l 25 -N $base02ee -n $base0 -M $base03 \
 	-m $base1 -S $base00 -s $base2
 
-set $exec_fish exec /usr/bin/fish -c
+set $exec_fish exec $fish -c
 
 set $fish_wmenu_crun \
 	set s (for i in $PATH/*; test -x "$i"; and path basename "$i"; \
@@ -64,7 +64,7 @@ set $fish_wmenu_open \
 	test -e "$s"; and xdg-open "$s"
 
 bindsym $mod+t exec $tmux
-bindsym $mod+Return exec $term $shell
+bindsym $mod+Return exec $term
 bindsym $mod+z exec swaylock
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
