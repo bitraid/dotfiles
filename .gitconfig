@@ -2,3 +2,5 @@
 	editor = nvim
 [protocol]
 	version = 2
+[diff]
+	colorMoved = default
