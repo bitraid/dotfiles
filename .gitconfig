@@ -4,3 +4,5 @@
 	version = 2
 [diff]
 	colorMoved = default
+[merge]
+	conflictStyle = diff3
