@@ -4,5 +4,6 @@
 	version = 2
 [diff]
 	colorMoved = default
+	wsErrorHighlight = all
 [merge]
 	conflictStyle = diff3
