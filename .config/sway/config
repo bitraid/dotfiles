@@ -129,10 +129,19 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+f fullscreen
+bindsym $mod+Shift+f fullscreen global
+
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
 bindsym $mod+b border toggle
+bindsym $mod+Control+b border pixel
+bindsym $mod+Control+Shift+b border normal
+bindsym $mod+Shift+b border none
+bindsym $mod+mod1+b border csd
+
 bindsym $mod+p sticky toggle
 bindsym $mod+grave scratchpad show
 
