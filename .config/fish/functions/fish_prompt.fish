@@ -22,7 +22,7 @@ function fish_prompt --description 'Informative prompt'
         set -g __fish_git_prompt_showstashstate 1
 
         printf "[%s] %s%s@%s %s%s %s%s%s %s $fish_private_mode \n> " (date "+%H:%M:%S") (set_color brblue) \
-            $USER (prompt_hostname) (set_color $fish_color_cwd) $PWD $pipestatus_string \
+            $USER (prompt_hostname) (set_color $fish_color_cwd) (string replace -r "^$HOME" '~' -- $PWD) $pipestatus_string \
             (set_color normal) (fish_git_prompt)
     end
 end
