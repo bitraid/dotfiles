@@ -2,6 +2,7 @@ function set_global
 	set -gx EDITOR nvim
 	set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 	eval (dircolors -c "$HOME/.config/dircolors-solarized/dircolors.256dark")
+	functions -e set_global
 end
 
 if test -t 0
@@ -18,7 +19,7 @@ if status is-login
 end
 
 if status is-interactive
-	set -q fish_login
-	or set_global
+	functions -q set_global
+	and set_global
 	set -x GPG_TTY (tty)
 end
