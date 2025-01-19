@@ -4,7 +4,7 @@ refresh_interval = 1000
 name = "window"
 instance = "0"
 format = "{title}  [{app_name}]"
-html_escape = false
+html_escape = true
 
 [modules.on_click]
 WheelDown = [
