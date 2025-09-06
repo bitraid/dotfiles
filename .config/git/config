@@ -41,3 +41,5 @@
 	whitespace-error-style = magenta magenta
 	wrap-max-lines = unlimited
 	wrap-right-percent = 1
+[include]
+	path = config.d/user
